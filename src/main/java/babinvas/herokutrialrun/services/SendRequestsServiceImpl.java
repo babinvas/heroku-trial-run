@@ -5,7 +5,12 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class SendRequestsServiceImpl implements SendRequestsService {
-	public Developer receiveDeveloper(String id) {
-		return new Developer();
+	public String receiveDeveloper(long id) {
+		if (!Developer.hasId(id)) {
+			return "У нас такого разработчика нет! \n" +
+					"Изиняй!";
+		}
+
+		return Developer.getName(id);
 	}
 }
