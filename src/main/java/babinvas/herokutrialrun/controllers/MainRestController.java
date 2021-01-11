@@ -2,6 +2,7 @@ package babinvas.herokutrialrun.controllers;
 
 import babinvas.herokutrialrun.services.SendRequestsService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -17,13 +18,13 @@ public class MainRestController {
 	}
 
 	@PostMapping("/rest/{id}")
-	public String receiveDeveloper(@PathParam("id") String id) {
+	public String receiveDeveloper(@PathVariable("id") String id) {
 		long longId;
 
 		try {
-			longId = Long.getLong(id);
+			longId = Long.parseLong(id);
 		} catch (RuntimeException e) {
-			return "Необходимо вести id, как целое число.";
+			return "{\"Ошибка ввода\"}: {\"Необходимо вести id, как целое число.\"}";
 		}
 
 		return sendRequestsService.receiveDeveloper(longId);
