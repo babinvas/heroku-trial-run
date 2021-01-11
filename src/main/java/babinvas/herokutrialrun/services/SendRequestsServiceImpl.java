@@ -7,10 +7,9 @@ import org.springframework.stereotype.Service;
 public class SendRequestsServiceImpl implements SendRequestsService {
 	public String receiveDeveloper(long id) {
 		if (!Developer.hasId(id)) {
-			return "У нас такого разработчика нет! \n" +
-					"Изиняй!";
+			return "{\"Ошибка ввода\"}: {\"У нас такого разработчика нет! Извиняй!\"}";
 		}
 
-		return Developer.getName(id);
+		return "{\"Наш разработчик:\"}: {\"" + Developer.getName(id) + "\"}";
 	}
 }
