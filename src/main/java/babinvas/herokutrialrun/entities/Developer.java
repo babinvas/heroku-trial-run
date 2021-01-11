@@ -20,14 +20,20 @@ public class Developer {
 		this.name = name;
 	}
 
-	public int developersLength() {
-		return developers.size();
-	}
-
-	public Developer getDeveloper(Long developerId) {
+	public static boolean hasId(long developerId) {
 		for (Developer developer : developers) {
 			if (developerId == developer.id) {
-				return developer;
+				return true;
+			}
+		}
+
+		return false;
+	}
+
+	public static String getName(long developerId) {
+		for (Developer developer : developers) {
+			if (developerId == developer.id) {
+				return developer.name;
 			}
 		}
 
