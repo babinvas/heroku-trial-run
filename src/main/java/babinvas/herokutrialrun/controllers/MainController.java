@@ -9,4 +9,9 @@ public class MainController {
 	public String welcomeHtmlPage() {
 		return "WelcomePage.html";
 	}
+
+	@RequestMapping("/rest")
+	public String restHtmlPage() {
+		return "RestPage.html";
+	}
 }
