@@ -22,7 +22,7 @@ public class MainRestController {
 		try {
 			longId = Long.parseLong(id);
 		} catch (RuntimeException e) {
-			return "{\"Ошибка ввода\"}: {\"Необходимо вести id, как целое число.\"}";
+			return "Ошибка ввода: Необходимо вести id, как целое число.";
 		}
 
 		return sendRequestsService.receiveDeveloper(longId);
