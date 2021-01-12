@@ -2,11 +2,9 @@ package babinvas.herokutrialrun.controllers;
 
 import babinvas.herokutrialrun.services.SendRequestsService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import javax.websocket.server.PathParam;
 
 @RestController
 public class MainRestController {
@@ -17,7 +15,7 @@ public class MainRestController {
 		this.sendRequestsService = sendRequestsService;
 	}
 
-	@PostMapping("/rest/{id}")
+	@GetMapping("/rest/{id}")
 	public String receiveDeveloper(@PathVariable("id") String id) {
 		long longId;
 
