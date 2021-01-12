@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Developer {
 	final private static List<Developer> developers = Arrays.asList(
-			new Developer(1L, "Стас"),
+			new Developer(1L, "Станислав"),
 			new Developer(2L, "Михаил"),
 			new Developer(3L, "Георгий"),
 			new Developer(4L, "Crazy Bot %)"),
