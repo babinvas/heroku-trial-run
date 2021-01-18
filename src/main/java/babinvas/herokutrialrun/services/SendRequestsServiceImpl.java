@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class SendRequestsServiceImpl implements SendRequestsService {
-	public String receiveDeveloper(long id) {
+	public String receiveDeveloper(int id) {
 		if (!Developer.hasId(id)) {
 			return "Ошибка ввода: У нас такого разработчика нет! \n\n" +
 					"Извиняйте!";

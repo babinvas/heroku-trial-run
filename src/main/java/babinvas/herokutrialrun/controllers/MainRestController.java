@@ -17,14 +17,14 @@ public class MainRestController {
 
 	@GetMapping("/rest/{id}")
 	public String receiveDeveloper(@PathVariable("id") String id) {
-		long longId;
+		int intId;
 
 		try {
-			longId = Long.parseLong(id);
+			intId = Integer.parseInt(id);
 		} catch (RuntimeException e) {
 			return "Ошибка ввода: Необходимо вести id, как целое число.";
 		}
 
-		return sendRequestsService.receiveDeveloper(longId);
+		return sendRequestsService.receiveDeveloper(intId);
 	}
 }
