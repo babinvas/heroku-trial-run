@@ -3,25 +3,35 @@ package babinvas.herokutrialrun.entities;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-class DeveloperTest {
+import java.util.Arrays;
+import java.util.List;
 
+class DeveloperTest {
 	@Test
 	void testHasId_ShouldReturnTrue() {
-		for (long i = 1L; i < 6L; i++) {
+		for (int i = 1; i < 6; i++) {
 			Assertions.assertTrue(Developer.hasId(i));
 		}
 	}
 
 	@Test
 	void testHasId_ShouldReturnFalse() {
-		long[] id = {-1L, 0L, 6L, 10L, 1000L};
+		int[] id = {-1, 0, 6, 10, 1000};
 
-		for (long i : id) {
+		for (int i : id) {
 			Assertions.assertFalse(Developer.hasId(i));
 		}
 	}
 
 	@Test
 	void testGetName() {
+		List<String> expectedNames = Arrays.asList("Станислав", "Михаил", "Георгий", "Crazy Bot %)", "Василий");
+
+		for(int i = 0; i < 5; i++) {
+			String expectedName = expectedNames.get(i);
+			String actualName = Developer.getName(i + 1);
+
+			Assertions.assertEquals(expectedName, actualName);
+		}
 	}
 }
